@@ -1,0 +1,31 @@
+.typewriter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 2.5rem;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.typewriter-text {
+  font-size: inherit;
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 1s infinite;
+  font-weight: 300;
+}
+
+@keyframes blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}

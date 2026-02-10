@@ -1,0 +1,259 @@
+.profile-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  background: #000000;
+  perspective: 1000px;
+}
+
+.profile-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.background-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #000000;
+}
+
+.profile-card {
+  position: relative;
+  width: 500px;
+  z-index: 1;
+  will-change: transform;
+  transform-origin: center center;
+}
+
+.profile-card:not(.unfolded) .profile-content {
+  opacity: 0;
+  transform: perspective(1500px) rotateY(90deg) scale(0.5);
+  transform-origin: center center;
+}
+
+.profile-card.unfolded .profile-content {
+  animation: unfold 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+@keyframes unfold {
+  0% {
+    opacity: 0;
+    transform: perspective(1500px) rotateY(90deg) scale(0.5);
+  }
+  40% {
+    opacity: 0.6;
+  }
+  70% {
+    transform: perspective(1500px) rotateY(-5deg) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1500px) rotateY(0deg) scale(1);
+  }
+}
+
+.profile-content {
+  width: 100%;
+  height: 100%;
+  padding: 2.5rem 2rem;
+  background: transparent;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.avatar-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: none;
+  object-fit: cover;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.avatar-decoration {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 140px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.profile-username {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.rainbow-gradient {
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7f00,
+    #ffff00,
+    #c8ff12,
+    #00ff00,
+    #00d9ff,
+    #0091ff,
+    #0000ff,
+    #4b0082,
+    #9400d3,
+    #ff0000
+  );
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: rainbow-cycle 5s linear infinite;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
+}
+
+@keyframes rainbow-cycle {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.profile-bio {
+  margin: 25px 0;
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1.4;
+  color: #e2e2e2;
+  min-height: 2rem;
+  text-align: center;
+}
+
+.profile-footer {
+  margin: 15px 0 30px 0;
+  padding: 0;
+  border: none;
+  font-size: 16px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.location {
+  display: inline-flex;
+  align-items: center;
+  font-weight: bold;
+  gap: 8px;
+}
+
+.location-icon {
+  animation: icon-glow 2s ease-in-out infinite;
+}
+
+@keyframes icon-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8));
+  }
+}
+
+/* Enter Overlay */
+.enter-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.enter-content {
+  text-align: center;
+}
+
+.enter-title {
+  font-size: 48px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.enter-subtitle {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: lowercase;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .profile-username {
+    font-size: 1.5rem;
+  }
+
+  .avatar-container {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .avatar-decoration {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-card {
+    transform: none !important;
+  }
+
+  .enter-title {
+    font-size: 36px;
+  }
+
+  .enter-subtitle {
+    font-size: 16px;
+  }
+}

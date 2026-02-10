@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://profile.1ceit.com/sitemap.xml
