@@ -1,73 +1,49 @@
-# React + TypeScript + Vite
+# Custom Profile Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A standalone, highly customizable profile page built with React, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+## Why?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+I wanted the premium features found on site the "guns.lol" without paying a monthly subscription. So, I built them myself.
 
-## React Compiler
+This project is completely **free to use, modify, and host**.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting Started
 
-## Expanding the ESLint configuration
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/1ceit/profile.git
+    cd profile
+    ```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+3.  **Run locally**
+    ```bash
+    npm run dev
+    ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+4.  **Configuration**
+    - Edit `src/components/Profile.tsx` to change:
+      - Username & Bio
+      - Background (Video/Image)
+      - Discord Avatar & Decoration
+    - Edit `src/components/SocialLinks.tsx` to add/remove links.
+    - Edit `src/components/Icons.tsx` to add new SVG icons.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+5.  **Build for production**
+    ```bash
+    npm run build
+    ```
+    The output will be in the `dist` folder, ready to deploy to Vercel, Netlify, or your own VPS.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Attribution
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+If you use this code for your own profile, a link back to this repository or a shoutout to [1ceit](https://github.com/1ceit) is appreciated.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## License
+
+MIT License. Free to use, modify, and distribute.
